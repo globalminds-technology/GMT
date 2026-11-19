@@ -18,6 +18,7 @@ const MasterProgramDetailPage = lazy(() => import('./pages/master-programs/Maste
 const CategoryPage            = lazy(() => import('./pages/CategoryPage'));
 const OnlineTrainingPage      = lazy(() => import('./pages/OnlineTrainingPage'));
 const ClassroomTrainingPage   = lazy(() => import('./pages/ClassroomTrainingPage'));
+const OneToOneTrainingPage    = lazy(() => import('./pages/OneToOneTrainingPage'));
 const CareerPage              = lazy(() => import('./pages/career/CareerPage'));
 const JobSupportPage          = lazy(() => import('./pages/career/JobSupportPage'));
 const InterviewPrepPage       = lazy(() => import('./pages/career/InterviewPrepPage'));
@@ -174,7 +175,8 @@ const router = createBrowserRouter([
 
       // Training modes
       { path: 'online-training',    element: <S><OnlineTrainingPage /></S> },
-      { path: 'classroom-training', element: <S><ClassroomTrainingPage /></S> },
+      { path: 'classroom-training',   element: <S><ClassroomTrainingPage /></S> },
+      { path: 'one-to-one-training', element: <S><OneToOneTrainingPage /></S> },
       { path: 'certifications',     element: <S><CertificationsPage /></S> },
 
       // Career
