@@ -55,7 +55,7 @@ export default function DemoClassPage() {
   const [submissionError, setSubmissionError] = useState('');
   const bookingFormRef = useRef<HTMLDivElement>(null);
   const [form, setForm] = useState<FormData>({
-    name: '', email: '', phone: '', course: '', preferredDate: '', preferredTime: '', mode: 'Online', message: '',
+    name: '', email: '', phone: '', course: '', preferredDate: '', preferredTime: '', mode: '', message: '',
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
