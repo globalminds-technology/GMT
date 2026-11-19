@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { Magnetic } from '../ui/Magnetic';
-import { publicCourseCatalog } from '../../data/publicCourseCatalog';
 
 const proofPoints = ['Practical, mentor-led training', 'Live online learning', 'Classroom training in Chennai'];
 
@@ -55,20 +54,7 @@ export function HeroSection() {
               </li>
             ))}
           </ul>
-          <div className="home-popular-links mx-auto mt-8 max-w-5xl border-t border-surface-200 pt-6">
-            <p className="mb-3 text-xs font-bold uppercase tracking-[0.16em] text-surface-800">Explore popular programs</p>
-            <div className="flex flex-wrap justify-center gap-2">
-              {publicCourseCatalog.map(course => (
-                <Link
-                  key={course.sourceSlug}
-                  to={`/courses/${course.sourceSlug}`}
-                  className="home-popular-link rounded-full px-4 py-2 text-sm font-semibold text-surface-800 border border-surface-200 bg-white hover:border-brand-500 hover:text-brand-800 transition-colors shadow-sm"
-                >
-                  {course.title}
-                </Link>
-              ))}
-            </div>
-          </div>
+
         </div>
       </section>
     </>
