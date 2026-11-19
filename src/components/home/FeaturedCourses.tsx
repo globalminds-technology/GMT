@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ArrowRight, Clock } from 'lucide-react';
 import { Button } from '../ui/Button';
 import type { Course } from '../../types';
@@ -28,6 +28,7 @@ function getFeaturedCourses(courses: Course[]): Course[] {
 
 export function FeaturedCourses() {
   const { courses: visibleCourses, loading, error, refresh } = useCourseCatalog();
+  const navigate = useNavigate();
   const displayCourses = getFeaturedCourses(visibleCourses);
 
   return (
@@ -91,15 +92,12 @@ export function FeaturedCourses() {
                         ? 'QA & Testing'
                         : course.subCategory || course.category}
                   </p>
-                  <h3 className="font-display mb-2 line-clamp-2 text-base font-bold text-surface-900 transition-colors group-hover:text-brand-700">
+                  <h3 className="font-display mb-3 line-clamp-2 text-base font-bold text-surface-900 transition-colors group-hover:text-brand-700">
                     {course.title}
                   </h3>
-                  <p className="mb-4 line-clamp-2 text-sm leading-relaxed text-surface-600">
-                    {course.shortDescription}
-                  </p>
 
-                  {/* Price */}
-                  <div className="mt-auto flex items-center justify-between gap-3">
+                  {/* Price + Duration */}
+                  <div className="mt-auto flex items-center justify-between gap-3 mb-4">
                     <span className="flex items-center gap-1.5 text-sm font-medium text-surface-600">
                       <Clock className="h-4 w-4" aria-hidden="true" />
                       {course.duration}
@@ -108,6 +106,15 @@ export function FeaturedCourses() {
                       {formatPrice(course.discountPrice, course.currency)}
                     </div>
                   </div>
+
+                  {/* Apply button */}
+                  <button
+                    type="button"
+                    onClick={e => { e.preventDefault(); navigate(`/courses/${course.slug}#apply`); }}
+                    className="w-full rounded-full bg-brand-700 py-2 text-sm font-bold text-white hover:bg-brand-800 transition-colors"
+                  >
+                    Apply Now
+                  </button>
                 </div>
                 </Link>
               </SpotlightCard>
