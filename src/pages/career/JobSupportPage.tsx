@@ -5,7 +5,6 @@ import { CTASection } from '../../components/home/CTASection';
 import { EnquiryForm } from '../../components/ui/EnquiryForm';
 import { usePageMeta } from '../../hooks/usePageMeta';
 import { ShinyText } from '../../components/ui/ShinyText';
-import { DecryptedText } from '../../components/ui/DecryptedText';
 import { SpotlightCard } from '../../components/ui/SpotlightCard';
 
 const services = [
@@ -36,7 +35,7 @@ export default function JobSupportPage() {
             <ShinyText text="End-to-End Application Guidance" shinyColor="rgba(23, 108, 115, 0.9)" />
           </div>
           <h1 className="page-hero-title display-lg font-extrabold mb-4">
-            Job Search <DecryptedText text="Support" speed={30} maxIterations={10} className="page-hero-highlight" />
+            Job Search <span className="page-hero-highlight">Support</span>
           </h1>
           <p className="page-hero-desc text-lg sm:text-xl max-w-2xl">
             Practical guidance to help you navigate the IT job market effectively — from uncovering opportunities to acing interviews and accepting top offers.

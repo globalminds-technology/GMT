@@ -5,7 +5,6 @@ import { CTASection } from '../../components/home/CTASection';
 import { EnquiryForm } from '../../components/ui/EnquiryForm';
 import { usePageMeta } from '../../hooks/usePageMeta';
 import { ShinyText } from '../../components/ui/ShinyText';
-import { DecryptedText } from '../../components/ui/DecryptedText';
 import { SpotlightCard } from '../../components/ui/SpotlightCard';
 
 const resumeTips = [
@@ -47,7 +46,7 @@ export default function ResumePrepPage() {
             <ShinyText text="ATS-Friendly Formatting" shinyColor="rgba(23, 108, 115, 0.9)" />
           </div>
           <h1 className="page-hero-title display-lg font-extrabold mb-4">
-            Resume <DecryptedText text="Preparation" speed={30} maxIterations={10} className="page-hero-highlight" />
+            Resume <span className="page-hero-highlight">Preparation</span>
           </h1>
           <p className="page-hero-desc text-lg sm:text-xl max-w-2xl">
             Build a strong, ATS-optimised resume that gets you shortlisted by top tech recruiters and hiring managers in the IT industry.

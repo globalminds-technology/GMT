@@ -3,7 +3,6 @@ import { categories } from '../data/categories';
 import { CourseCard } from '../components/courses/CourseCard';
 import { Breadcrumbs } from '../components/ui/Breadcrumbs';
 import { ShinyText } from '../components/ui/ShinyText';
-import { DecryptedText } from '../components/ui/DecryptedText';
 import NotFoundPage from './NotFoundPage';
 import { useCourseCatalog } from '../hooks/useCourseCatalog';
 import { publicCourseCatalog } from '../data/publicCourseCatalog';
@@ -28,14 +27,7 @@ export default function CategoryPage() {
             <ShinyText text="Specialized Domain" shinyColor="rgba(23, 108, 115, 0.9)" />
           </div>
           <h1 className="page-hero-title display-md font-extrabold mb-3">
-            <DecryptedText
-              text={category.title}
-              speed={40}
-              maxIterations={15}
-              sequential={true}
-              revealDirection="start"
-              className="page-hero-highlight"
-            />
+            <span className="page-hero-highlight">{category.title}</span>
           </h1>
           <p className="page-hero-desc max-w-xl text-base sm:text-lg font-medium">{category.description}</p>
         </div>

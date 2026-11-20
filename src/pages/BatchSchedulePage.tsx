@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { Breadcrumbs } from '../components/ui/Breadcrumbs';
 import { Button } from '../components/ui/Button';
 import { ShinyText } from '../components/ui/ShinyText';
-import { DecryptedText } from '../components/ui/DecryptedText';
 import { SpotlightCard } from '../components/ui/SpotlightCard';
 import { CTASection } from '../components/home/CTASection';
 import { usePageMeta } from '../hooks/usePageMeta';
@@ -63,14 +62,7 @@ export default function BatchSchedulePage() {
             <ShinyText text="Real-Time Enrollment Open" shinyColor="rgba(23, 108, 115, 0.9)" />
           </div>
           <h1 className="page-hero-title display-lg font-extrabold mb-4">
-            Upcoming <DecryptedText
-              text="Batch Schedules"
-              speed={40}
-              maxIterations={15}
-              sequential={true}
-              revealDirection="start"
-              className="page-hero-highlight"
-            />
+            Upcoming <span className="page-hero-highlight">Batch Schedules</span>
           </h1>
           <p className="page-hero-desc text-lg sm:text-xl max-w-2xl">
             Find the right batch that fits your schedule — weekday, weekend, or fast-track. Online, classroom, and hybrid options available with personalized mentorship.

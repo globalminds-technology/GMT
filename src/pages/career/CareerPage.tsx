@@ -4,7 +4,6 @@ import { CTASection } from '../../components/home/CTASection';
 import { EnquiryForm } from '../../components/ui/EnquiryForm';
 import { usePageMeta } from '../../hooks/usePageMeta';
 import { ShinyText } from '../../components/ui/ShinyText';
-import { DecryptedText } from '../../components/ui/DecryptedText';
 import { SpotlightCard } from '../../components/ui/SpotlightCard';
 
 const careerServices = [
@@ -33,7 +32,7 @@ export default function CareerPage() {
             <ShinyText text="Dedicated Placement Cell" shinyColor="rgba(23, 108, 115, 0.9)" />
           </div>
           <h1 className="page-hero-title display-lg font-extrabold mb-4">
-            Career &amp; <DecryptedText text="Placement Support" speed={30} maxIterations={10} className="page-hero-highlight" />
+            Career &amp; <span className="page-hero-highlight">Placement Support</span>
           </h1>
           <p className="page-hero-desc text-lg sm:text-xl max-w-2xl">
             Dedicated career support to help you land your dream IT job — from resume building to mock interviews, salary negotiation, and direct recruiter connections.

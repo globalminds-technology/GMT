@@ -4,7 +4,6 @@ import { Breadcrumbs } from '../components/ui/Breadcrumbs';
 import { CTASection } from '../components/home/CTASection';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useCmsCollection } from '../hooks/useCmsCollection';
-import { DecryptedText } from '../components/ui/DecryptedText';
 
 interface PlacementRecord {
   id: string;
@@ -35,7 +34,7 @@ export default function PlacementPage() {
             <Breadcrumbs items={[{ label: 'Placement Records' }]} className="mb-5" />
             <div className="page-hero-badge mb-6">Published placement updates</div>
             <h1 className="mb-5 max-w-2xl text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl text-surface-900">
-              Placement Records &amp; <DecryptedText text="Career Outcomes" speed={30} maxIterations={10} className="page-hero-highlight" />
+              Placement Records &amp; <span className="page-hero-highlight">Career Outcomes</span>
             </h1>
             <p className="page-hero-desc max-w-2xl text-lg sm:text-xl leading-relaxed">
               Explore placement updates and learner outcomes published by our administrators.

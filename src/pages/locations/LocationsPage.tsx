@@ -7,7 +7,6 @@ import { Breadcrumbs } from '../../components/ui/Breadcrumbs';
 import { CTASection } from '../../components/home/CTASection';
 import { Badge } from '../../components/ui/Badge';
 import { ShinyText } from '../../components/ui/ShinyText';
-import { DecryptedText } from '../../components/ui/DecryptedText';
 import { SpotlightCard } from '../../components/ui/SpotlightCard';
 import { useCmsCollection } from '../../hooks/useCmsCollection';
 
@@ -25,14 +24,7 @@ export default function LocationsPage() {
             <ShinyText text="Campuses & Hybrid Learning Hubs" shinyColor="rgba(23, 108, 115, 0.9)" />
           </div>
           <h1 className="page-hero-title mb-4">
-            Training <DecryptedText
-              text="Centres"
-              speed={40}
-              maxIterations={15}
-              sequential={true}
-              revealDirection="start"
-              className="page-hero-highlight"
-            />
+            Training <span className="page-hero-highlight">Centres</span>
           </h1>
           <p className="page-hero-desc text-lg sm:text-xl max-w-2xl leading-relaxed">
             In-person classroom training is available at our state-of-the-art Chennai centre. Online live interactive training is available globally.

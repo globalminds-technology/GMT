@@ -7,7 +7,6 @@ import { usePageMeta } from '../hooks/usePageMeta';
 import { scholarships as defaultScholarships } from '../data/scholarships';
 import { useCmsCollection } from '../hooks/useCmsCollection';
 import { ShinyText } from '../components/ui/ShinyText';
-import { DecryptedText } from '../components/ui/DecryptedText';
 import { SpotlightCard } from '../components/ui/SpotlightCard';
 import { CountUp } from '../components/ui/CountUp';
 import { DateCycleBadge } from '../components/common/DateCycleBadge';
@@ -78,7 +77,7 @@ export default function ScholarshipPage() {
             </div>
             <h1 className="page-hero-title mb-6">
               Scholarships &amp;<br />
-              <DecryptedText text="Fee Structure" speed={30} maxIterations={10} className="page-hero-highlight" />
+              <span className="page-hero-highlight">Fee Structure</span>
             </h1>
             <p className="page-hero-desc text-xl mb-8 max-w-2xl leading-relaxed">
               Quality tech education shouldn't break the bank. Explore our scholarships, flexible EMI plans and discounts designed to make learning accessible to everyone.

@@ -6,7 +6,6 @@ import { CTASection } from '../components/home/CTASection';
 import { siteConfig } from '../data/siteConfig';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { ShinyText } from '../components/ui/ShinyText';
-import { DecryptedText } from '../components/ui/DecryptedText';
 import { SpotlightCard } from '../components/ui/SpotlightCard';
 
 const features = [
@@ -33,7 +32,7 @@ export default function OnlineTrainingPage() {
             <ShinyText text="Interactive Live Virtual Learning" shinyColor="rgba(23, 108, 115, 0.9)" />
           </div>
           <h1 className="page-hero-title display-lg font-extrabold mb-4">
-            Online <DecryptedText text="Training" speed={30} maxIterations={10} className="page-hero-highlight" />
+            Online <span className="page-hero-highlight">Training</span>
           </h1>
           <p className="page-hero-desc text-lg sm:text-xl max-w-2xl">
             Learn through live online classes. Study from anywhere in the world with flexible support and full session recordings.

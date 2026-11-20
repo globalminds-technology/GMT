@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { Breadcrumbs } from '../components/ui/Breadcrumbs';
 import { CTASection } from '../components/home/CTASection';
 import { ShinyText } from '../components/ui/ShinyText';
-import { DecryptedText } from '../components/ui/DecryptedText';
 import { SpotlightCard } from '../components/ui/SpotlightCard';
 import { TiltedCard } from '../components/ui/TiltedCard';
 
@@ -36,7 +35,7 @@ export default function CertificationsPage() {
               <ShinyText text="Industry Recognized Credentials" shinyColor="rgba(23, 108, 115, 0.9)" />
             </div>
             <h1 className="page-hero-title mb-4">
-              Global <DecryptedText text="Certifications" speed={30} maxIterations={10} className="page-hero-highlight" />
+              Global <span className="page-hero-highlight">Certifications</span>
             </h1>
             <p className="page-hero-desc text-xl max-w-2xl leading-relaxed">
               Earn industry-recognised certificates that validate your skills and boost your career profile.

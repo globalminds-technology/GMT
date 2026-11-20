@@ -1,7 +1,6 @@
 import { Briefcase, CheckCircle, ShieldCheck, Zap } from 'lucide-react';
 import { Breadcrumbs } from '../components/ui/Breadcrumbs';
 import { ShinyText } from '../components/ui/ShinyText';
-import { DecryptedText } from '../components/ui/DecryptedText';
 import { SpotlightCard } from '../components/ui/SpotlightCard';
 import { CountUp } from '../components/ui/CountUp';
 import { CTASection } from '../components/home/CTASection';
@@ -47,14 +46,7 @@ export default function AboutPage() {
               <ShinyText text="Empowering IT Careers • Chennai & Global" shinyColor="rgba(23, 108, 115, 0.9)" />
             </div>
             <h1 className="page-hero-title mb-6">
-              Building Skills Today for <DecryptedText
-                text="Tomorrow's Leaders"
-                speed={40}
-                maxIterations={15}
-                sequential={true}
-                revealDirection="start"
-                className="page-hero-highlight"
-              />
+              Building Skills Today for <span className="page-hero-highlight">Tomorrow's Leaders</span>
             </h1>
             <p className="page-hero-desc max-w-3xl text-lg sm:text-xl leading-relaxed mb-4">
               At Global Minds Technologies, we offer specialized training programs designed to meet industry standards and future career demands. Our courses include advanced IT technologies such as Python, Java, React JS, Node.js, AWS, Data Science, Data Warehousing, Blockchain, Dot Net, Selenium, Hadoop, Tableau, Power BI, and more.

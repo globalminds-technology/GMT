@@ -4,7 +4,6 @@ import { Search, X, Grid, List, BookOpen } from 'lucide-react';
 import { CourseCard } from '../../components/courses/CourseCard';
 import { Breadcrumbs } from '../../components/ui/Breadcrumbs';
 import { ShinyText } from '../../components/ui/ShinyText';
-import { DecryptedText } from '../../components/ui/DecryptedText';
 import { cn } from '../../utils/cn';
 import type { Course } from '../../types';
 import { usePageMeta } from '../../hooks/usePageMeta';
@@ -98,7 +97,7 @@ export default function CoursesPage() {
             <ShinyText text="✨ Career-Focused Curricula" shinyColor="rgba(23, 108, 115, 0.9)" />
           </div>
           <h1 className="page-hero-title display-md font-extrabold mb-3">
-            Explore <DecryptedText text="All Courses" speed={30} maxIterations={10} className="page-hero-highlight" />
+            Explore <span className="page-hero-highlight">All Courses</span>
           </h1>
           <p className="page-hero-desc max-w-2xl text-base sm:text-lg">
             Discover {visibleCourses.length} industry-focused courses: AWS / Cloud, Data Analytics, Python, Gen AI / Agent AI, AIDS, AIML, Digital Marketing, Full Stack Development, Cyber Security, Software Testing, and AI Automation Testing.

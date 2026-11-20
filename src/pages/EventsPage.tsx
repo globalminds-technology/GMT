@@ -7,7 +7,6 @@ import { usePageMeta } from '../hooks/usePageMeta';
 import { useCmsCollection } from '../hooks/useCmsCollection';
 import { siteConfig } from '../data/siteConfig';
 import { ShinyText } from '../components/ui/ShinyText';
-import { DecryptedText } from '../components/ui/DecryptedText';
 import { SpotlightCard } from '../components/ui/SpotlightCard';
 import { dateService, useDateSystem } from '../services/dateService';
 import { DateCycleBadge } from '../components/common/DateCycleBadge';
@@ -98,7 +97,7 @@ export default function EventsPage() {
             <ShinyText text="Live Community Sessions & Masterclasses" shinyColor="rgba(23, 108, 115, 0.9)" />
           </div>
           <h1 className="page-hero-title mb-4">
-            Events, Webinars &amp; <DecryptedText text="Workshops" speed={30} maxIterations={10} className="page-hero-highlight" />
+            Events, Webinars &amp; <span className="page-hero-highlight">Workshops</span>
           </h1>
           <p className="page-hero-desc text-xl max-w-2xl leading-relaxed">
             Learn from industry experts, build skills through hands-on workshops, and connect with the tech community — most events are free.

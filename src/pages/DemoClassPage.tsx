@@ -3,7 +3,6 @@ import { CheckCircle, Calendar, Clock, Users, Monitor, Play, Loader2 } from 'luc
 import { Breadcrumbs } from '../components/ui/Breadcrumbs';
 import { Button } from '../components/ui/Button';
 import { ShinyText } from '../components/ui/ShinyText';
-import { DecryptedText } from '../components/ui/DecryptedText';
 import { SpotlightCard } from '../components/ui/SpotlightCard';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { enquiryService } from '../services/enquiryService';
@@ -122,14 +121,7 @@ export default function DemoClassPage() {
               </div>
               <h1 className="page-hero-title mb-6">
                 Book Your Free<br />
-                <DecryptedText
-                  text="Demo Class"
-                  speed={40}
-                  maxIterations={15}
-                  sequential={true}
-                  revealDirection="start"
-                  className="page-hero-highlight"
-                />
+                <span className="page-hero-highlight">Demo Class</span>
               </h1>
               <p className="page-hero-desc text-lg sm:text-xl mb-8 leading-relaxed">
                 Experience our teaching quality before enrolling. Attend a free live demo session, ask questions, see the curriculum, and decide with confidence.

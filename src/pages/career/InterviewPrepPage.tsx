@@ -6,7 +6,6 @@ import { CTASection } from '../../components/home/CTASection';
 import { EnquiryForm } from '../../components/ui/EnquiryForm';
 import { usePageMeta } from '../../hooks/usePageMeta';
 import { ShinyText } from '../../components/ui/ShinyText';
-import { DecryptedText } from '../../components/ui/DecryptedText';
 import { SpotlightCard } from '../../components/ui/SpotlightCard';
 
 const topics = [
@@ -65,7 +64,7 @@ export default function InterviewPrepPage() {
             <ShinyText text="Technical & HR Mock Rounds" shinyColor="rgba(23, 108, 115, 0.9)" />
           </div>
           <h1 className="page-hero-title display-lg font-extrabold mb-4">
-            Interview <DecryptedText text="Preparation" speed={30} maxIterations={10} className="page-hero-highlight" />
+            Interview <span className="page-hero-highlight">Preparation</span>
           </h1>
           <p className="page-hero-desc text-lg sm:text-xl max-w-2xl">
             Structured interview preparation for technical, HR and aptitude rounds — domain-specific coaching aligned to the roles you're targeting.

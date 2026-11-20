@@ -124,14 +124,17 @@ export function readNavigationContent(value: unknown): NavigationContent | undef
   const coursesItem = normalizedPrimary.find(item => item.href === '/courses');
   if (coursesItem) {
     coursesItem.visible = true;
-    coursesItem.children = categories.map((category, index) => ({
-      id: `course-category-${category.slug}`,
-      label: category.title,
-      href: `/categories/${category.slug}`,
-      visible: true,
-      order: index + 1,
-      icon: '',
-    }));
+    coursesItem.children = categories.map((category, index) => {
+      const course = publicCourseCatalog.find(c => c.category === category.slug);
+      return {
+        id: `course-category-${category.slug}`,
+        label: category.title,
+        href: course ? `/courses/${course.sourceSlug}` : `/categories/${category.slug}`,
+        visible: true,
+        order: index + 1,
+        icon: '',
+      };
+    });
   }
   const isCertificationsLink = (item: MenuLink) =>
     item.href.split(/[?#]/, 1)[0].replace(/\/+$/, '').toLowerCase() === '/certifications';
@@ -182,14 +185,17 @@ export const defaultNavigation: NavigationContent = {
       visible: true,
       order: 1,
       icon: '',
-      children: categories.map((category, index) => ({
-        id: `course-category-${category.slug}`,
-        label: category.title,
-        href: `/categories/${category.slug}`,
-        visible: true,
-        order: index + 1,
-        icon: '',
-      })),
+      children: categories.map((category, index) => {
+        const course = publicCourseCatalog.find(c => c.category === category.slug);
+        return {
+          id: `course-category-${category.slug}`,
+          label: category.title,
+          href: course ? `/courses/${course.sourceSlug}` : `/categories/${category.slug}`,
+          visible: true,
+          order: index + 1,
+          icon: '',
+        };
+      }),
     },
     { id: 'master-programs', label: 'Master Programs', href: '/master-programs', section: 'primary', visible: true, order: 2, icon: '', children: [] },
     { id: 'placement', label: 'Placement Records', href: '/placement-records', section: 'primary', visible: true, order: 3, icon: '', children: [] },

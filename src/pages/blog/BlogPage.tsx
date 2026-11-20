@@ -5,7 +5,6 @@ import { formatDate } from '../../utils/formatters';
 import { Badge } from '../../components/ui/Badge';
 import { Breadcrumbs } from '../../components/ui/Breadcrumbs';
 import { ShinyText } from '../../components/ui/ShinyText';
-import { DecryptedText } from '../../components/ui/DecryptedText';
 import { SpotlightCard } from '../../components/ui/SpotlightCard';
 import { useCmsCollection } from '../../hooks/useCmsCollection';
 
@@ -20,14 +19,7 @@ export default function BlogPage() {
             <ShinyText text="Tech Insights & Career Roadmaps" shinyColor="rgba(23, 108, 115, 0.9)" />
           </div>
           <h1 className="page-hero-title mb-4">
-            Blog &amp; <DecryptedText
-              text="Resources"
-              speed={40}
-              maxIterations={15}
-              sequential={true}
-              revealDirection="start"
-              className="page-hero-highlight"
-            />
+            Blog &amp; <span className="page-hero-highlight">Resources</span>
           </h1>
           <p className="page-hero-desc text-lg sm:text-xl max-w-2xl leading-relaxed">
             Tech insights, career guidance, certification tips, and real-world developer tutorials written by mentors.
