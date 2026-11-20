@@ -152,7 +152,7 @@ export default function InternshipDetailPage() {
             {/* Application Form */}
             <div id="apply-form" className="bg-white border border-surface-200 rounded-3xl p-8 shadow-card">
               <EnquiryForm
-                title="Apply for This Internship"
+                title="Apply for This Internship" category="internship"
                 subtitle="Fill in your details and our team will reach out with the next steps."
                 preselectedCourse={internship.title}
               />

@@ -181,7 +181,7 @@ export default function MasterProgramDetailPage() {
         {/* Enquiry Form */}
         <div id="enquiry-form" className="mt-16 max-w-2xl mx-auto">
           <div className="bg-surface-50 border border-surface-200 rounded-3xl p-8">
-            <EnquiryForm preselectedCourse={program.title} title="Enquire About This Program" />
+            <EnquiryForm preselectedCourse={program.title} title="Enquire About This Program" category="master-program" />
           </div>
         </div>
       </div>

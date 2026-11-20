@@ -79,6 +79,7 @@ export interface EnquiryRecord {
   message: string;
   status: 'new' | 'contacted' | 'enrolled' | 'not-interested' | 'follow-up';
   source: string;
+  category: string;
   assignedTo: string;
   createdAt: string;
   updatedAt: string;
@@ -789,14 +790,16 @@ export async function createEnquiry(input: Omit<EnquiryRecord, 'id' | 'status' |
   return mutateAndSave(async () => {
     const id = randomUUID();
     const createdAt = new Date().toISOString();
+    const category = input.category || 'general';
     await getDataDatabase().execute(
-      `INSERT INTO enquiries (id, name, email, phone, course, message, status, source, assigned_to, created_at, updated_at, notes)
-       VALUES (?, ?, ?, ?, ?, ?, 'new', ?, '', ?, ?, '')`,
-      [id, input.name, input.email, input.phone, input.course, input.message, input.source, createdAt, createdAt],
+      `INSERT INTO enquiries (id, name, email, phone, course, message, status, source, category, assigned_to, created_at, updated_at, notes)
+       VALUES (?, ?, ?, ?, ?, ?, 'new', ?, ?, '', ?, ?, '')`,
+      [id, input.name, input.email, input.phone, input.course, input.message, input.source, category, createdAt, createdAt],
     );
     return {
       ...input,
       id,
+      category,
       status: 'new',
       assignedTo: '',
       createdAt,
@@ -809,6 +812,7 @@ export async function createEnquiry(input: Omit<EnquiryRecord, 'id' | 'status' |
 export async function listEnquiries(): Promise<EnquiryRecord[]> {
   return queryAll<EnquiryRecord>(
     `SELECT id, name, email, phone, course, message, status, source,
+       COALESCE(category, 'general') AS "category",
        assigned_to AS "assignedTo", created_at AS "createdAt", updated_at AS "updatedAt", notes,
        follow_up_date AS "followUpDate"
      FROM enquiries ORDER BY created_at DESC`,
@@ -830,6 +834,7 @@ export async function updateEnquiry(
     );
     return queryOne<EnquiryRecord>(
       `SELECT id, name, email, phone, course, message, status, source,
+        COALESCE(category, 'general') AS "category",
         assigned_to AS "assignedTo", created_at AS "createdAt", updated_at AS "updatedAt",
         notes, follow_up_date AS "followUpDate" FROM enquiries WHERE id = ?`,
       [id],

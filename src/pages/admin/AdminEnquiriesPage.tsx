@@ -175,11 +175,15 @@ function EnquiryDetailModal({
             <span className={`text-xs px-2.5 py-1 rounded-full font-medium ${sc.color}`}>{sc.label}</span>
           </div>
 
-          {/* Course & source */}
-          <div className="grid grid-cols-2 gap-4">
+          {/* Course & source & category */}
+          <div className="grid grid-cols-3 gap-4">
             <div className="bg-surface-50 rounded-xl p-4">
               <p className="text-xs text-surface-500 mb-1">Course Interested In</p>
               <p className="font-semibold text-surface-900">{enquiry.course}</p>
+            </div>
+            <div className="bg-surface-50 rounded-xl p-4">
+              <p className="text-xs text-surface-500 mb-1">Category</p>
+              <p className="font-semibold text-brand-700 capitalize">{enquiry.category || 'General'}</p>
             </div>
             <div className="bg-surface-50 rounded-xl p-4">
               <p className="text-xs text-surface-500 mb-1">Source</p>
@@ -270,6 +274,7 @@ export default function AdminEnquiriesPage() {
   const [loadError, setLoadError] = useState('');
   const [search, setSearch] = useState('');
   const [statusFilter, setStatusFilter] = useState<EnquiryStatus | 'all'>('all');
+  const [categoryFilter, setCategoryFilter] = useState<string>('all');
   const [selectedEnquiry, setSelectedEnquiry] = useState<Enquiry | null>(null);
   const [addingEnquiry, setAddingEnquiry] = useState(false);
 
@@ -303,14 +308,38 @@ export default function AdminEnquiriesPage() {
       e.course.toLowerCase().includes(search.toLowerCase())
     );
     if (statusFilter !== 'all') list = list.filter(e => e.status === statusFilter);
+    if (categoryFilter !== 'all') list = list.filter(e => (e.category || 'general') === categoryFilter);
     return list.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
-  }, [enquiries, search, statusFilter]);
+  }, [enquiries, search, statusFilter, categoryFilter]);
 
   const counts = useMemo(() => {
     const c: Record<string, number> = { all: enquiries.length };
     (Object.keys(statusConfig) as EnquiryStatus[]).forEach(s => { c[s] = enquiries.filter(e => e.status === s).length; });
     return c;
   }, [enquiries]);
+
+  const categoryCounts = useMemo(() => {
+    const cats = ['free-demo','course','master-program','internship','career-placement','job-support','corporate','college','certification','contact','one-to-one','general'];
+    const c: Record<string, number> = { all: enquiries.length };
+    cats.forEach(cat => { c[cat] = enquiries.filter(e => (e.category || 'general') === cat).length; });
+    return c;
+  }, [enquiries]);
+
+  const categoryLabels: Record<string, string> = {
+    'all': 'All',
+    'free-demo': 'Free Demo',
+    'course': 'Course',
+    'master-program': 'Master Program',
+    'internship': 'Internship',
+    'career-placement': 'Career & Placement',
+    'job-support': 'Job Support',
+    'corporate': 'Corporate',
+    'college': 'College',
+    'certification': 'Certification',
+    'contact': 'Contact',
+    'one-to-one': 'One-to-One',
+    'general': 'General',
+  };
 
   return (
     <div className="space-y-6">
@@ -351,6 +380,29 @@ export default function AdminEnquiriesPage() {
         ))}
       </div>
 
+      {/* Category filter */}
+      <div className="bg-white rounded-2xl border border-surface-100 p-4">
+        <p className="text-xs font-semibold text-surface-500 uppercase mb-3">Filter by Category</p>
+        <div className="flex flex-wrap gap-2">
+          {Object.entries(categoryLabels).map(([key, label]) => (
+            categoryCounts[key] !== undefined && (categoryCounts[key] > 0 || key === 'all') ? (
+              <button
+                key={key}
+                onClick={() => setCategoryFilter(key)}
+                className={cn(
+                  'px-3 py-1.5 rounded-full text-xs font-semibold border transition-all',
+                  categoryFilter === key
+                    ? 'bg-brand-700 text-white border-brand-700'
+                    : 'bg-surface-50 text-surface-700 border-surface-200 hover:border-brand-300'
+                )}
+              >
+                {label} <span className="ml-1 opacity-70">({categoryCounts[key] ?? 0})</span>
+              </button>
+            ) : null
+          ))}
+        </div>
+      </div>
+
       {/* Search */}
       <div className="bg-white rounded-2xl border border-surface-100 p-4 flex gap-3 items-center flex-wrap">
         <div className="flex-1 min-w-48 relative">
@@ -377,6 +429,7 @@ export default function AdminEnquiriesPage() {
                 <th className="text-left px-5 py-3">Name</th>
                 <th className="text-left px-4 py-3">Course</th>
                 <th className="text-left px-4 py-3">Status</th>
+                <th className="text-left px-4 py-3">Category</th>
                 <th className="text-left px-4 py-3">Source</th>
                 <th className="text-left px-4 py-3">Assigned To</th>
                 <th className="text-left px-4 py-3">Follow-up</th>
@@ -412,6 +465,11 @@ export default function AdminEnquiriesPage() {
                     <td className="px-4 py-3">
                       <span className={`text-xs px-2.5 py-1 rounded-full font-medium whitespace-nowrap ${sc.color}`}>
                         {sc.label}
+                      </span>
+                    </td>
+                    <td className="px-4 py-3">
+                      <span className="text-xs bg-brand-50 text-brand-700 px-2 py-0.5 rounded-full font-medium whitespace-nowrap capitalize">
+                        {categoryLabels[enq.category || 'general'] ?? enq.category ?? 'General'}
                       </span>
                     </td>
                     <td className="px-4 py-3 text-xs text-surface-600">{enq.source}</td>

@@ -141,7 +141,7 @@ export default function ResumePrepPage() {
                   <p className="text-surface-500 text-sm">Get feedback on your existing resume</p>
                 </div>
               </div>
-              <EnquiryForm title="" subtitle="Submit your details and our career team will review your resume and provide actionable feedback." compact />
+              <EnquiryForm title="" category="career-placement" subtitle="Submit your details and our career team will review your resume and provide actionable feedback." compact />
             </div>
           </div>
         </div>

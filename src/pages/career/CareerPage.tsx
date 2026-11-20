@@ -92,7 +92,7 @@ export default function CareerPage() {
               </ol>
             </div>
             <div className="bg-white rounded-3xl p-8 shadow-card">
-              <EnquiryForm title="Get Career Counseling" subtitle="Free 1-on-1 career counseling session with our experts." compact />
+              <EnquiryForm title="Get Career Counseling" category="career-placement" subtitle="Free 1-on-1 career counseling session with our experts." compact />
             </div>
           </div>
         </div>

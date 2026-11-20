@@ -419,7 +419,7 @@ export default function CourseDetailPage() {
           <div className="bg-surface-50 rounded-3xl p-8">
             <EnquiryForm
               preselectedCourse={course.title}
-              title="Enquire About This Course"
+              title="Enquire About This Course" category="course"
               subtitle="Our counselor will contact you with details, batch schedules and pricing."
             />
           </div>

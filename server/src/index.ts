@@ -417,15 +417,19 @@ app.post('/api/enquiries', requireSameOrigin, enquiryLimiter, asyncHandler(async
   const course = typeof body.course === 'string' ? body.course.trim() : '';
   const message = typeof body.message === 'string' ? body.message.trim() : '';
   const source = typeof body.source === 'string' ? body.source.trim() : 'Website Form';
+  const category = typeof body.category === 'string' ? body.category.trim() : 'general';
+
+  const validCategories = ['free-demo','course','master-program','internship','career-placement','job-support','corporate','college','certification','contact','one-to-one','general'];
 
   if (name.length < 2 || name.length > 120 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
     || phone.length < 7 || phone.length > 32 || course.length > 200
-    || message.length > 5000 || source.length > 100) {
+    || message.length > 5000 || source.length > 100
+    || !validCategories.includes(category)) {
     res.status(400).json({ message: 'Please provide valid enquiry details.' });
     return;
   }
 
-  const enquiry = await createEnquiry({ name, email, phone, course, message, source });
+  const enquiry = await createEnquiry({ name, email, phone, course, message, source, category });
   res.status(201).json({ success: true, enquiry });
 }));
 

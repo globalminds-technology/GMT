@@ -77,7 +77,7 @@ export default function OneToOneTrainingPage() {
 
             {/* Right — form */}
             <div className="bg-white border border-surface-200 rounded-2xl p-6 shadow-sm">
-              <EnquiryForm title="Enquire About One-to-One Training" compact />
+              <EnquiryForm title="Enquire About One-to-One Training" category="one-to-one" compact />
             </div>
 
           </div>

@@ -97,7 +97,7 @@ export default function JobSupportPage() {
             </div>
 
             <div className="bg-surface-50 rounded-3xl p-8">
-              <EnquiryForm title="Talk to Our Career Team" subtitle="Get personalised job search guidance from our career counselors." compact />
+              <EnquiryForm title="Talk to Our Career Team" category="job-support" subtitle="Get personalised job search guidance from our career counselors." compact />
             </div>
           </div>
         </div>

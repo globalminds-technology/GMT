@@ -988,8 +988,18 @@ const migrations: Migration[] = [
         )
       `);
     },
+  {
+    id: '011_enquiry_category',
+    async up(database) {
+      if (!(await database.hasColumn('enquiries', 'category'))) {
+        await database.execute(`ALTER TABLE enquiries ADD COLUMN category TEXT NOT NULL DEFAULT 'general'`);
+      }
+      await database.execute('CREATE INDEX IF NOT EXISTS enquiries_category_idx ON enquiries (category)');
+    },
   },
 ];
+
+// 011 is inserted above this comment
 
 export async function runMigrations(database: DataDatabase): Promise<void> {
   await database.execute(`

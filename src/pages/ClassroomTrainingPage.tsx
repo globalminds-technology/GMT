@@ -125,7 +125,7 @@ export default function ClassroomTrainingPage() {
             {/* Right — Form */}
             <div className="bg-white border border-surface-200 rounded-3xl p-8 shadow-card">
               <EnquiryForm
-                title="Enquire About Classroom Training"
+                title="Enquire About Classroom Training" category="course"
                 subtitle="Fill in the form and our team will get back to you within 24 hours."
                 compact
               />

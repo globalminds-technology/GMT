@@ -86,7 +86,7 @@ export default function OnlineTrainingPage() {
               </Link>
             </div>
             <div className="bg-white border border-surface-200 rounded-3xl p-8 shadow-card">
-              <EnquiryForm title="Enquire About Online Training" compact />
+              <EnquiryForm title="Enquire About Online Training" category="course" compact />
             </div>
           </div>
         </div>

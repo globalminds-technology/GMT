@@ -171,7 +171,7 @@ export default function InterviewPrepPage() {
             </div>
 
             <div className="bg-white rounded-3xl p-8 shadow-card">
-              <EnquiryForm title="Start Interview Preparation" subtitle="Tell us your target role and we'll create a personalised prep plan." compact />
+              <EnquiryForm title="Start Interview Preparation" category="career-placement" subtitle="Tell us your target role and we'll create a personalised prep plan." compact />
             </div>
           </div>
         </div>

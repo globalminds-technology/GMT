@@ -81,7 +81,7 @@ export default function DemoClassPage() {
           form.message,
         ].filter(Boolean).join('\n'),
         consent: true,
-      });
+      }, 'free-demo');
       if (!result.success) {
         setSubmissionError(result.message);
         return;
