@@ -55,7 +55,6 @@ export function CourseCard({ course, layout = 'grid', className }: CourseCardPro
               )}
             </div>
           </div>
-          <p className="text-sm text-surface-600 line-clamp-2 mb-3 leading-relaxed">{course.shortDescription}</p>
           <div className="flex flex-wrap items-center gap-4 text-xs text-surface-600 font-medium">
             <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" />{course.duration}</span>
             <span className="flex items-center gap-1"><BookOpen className="w-3.5 h-3.5" />{course.modules.length} modules</span>
@@ -128,10 +127,7 @@ export function CourseCard({ course, layout = 'grid', className }: CourseCardPro
           {course.title}
         </h3>
 
-        {/* Short description */}
-        <p className="text-sm text-surface-600 line-clamp-2 mb-3 leading-relaxed">
-          {course.shortDescription}
-        </p>
+        {/* Short description removed */}
 
         {/* Meta */}
         <div className="flex items-center gap-3 text-xs text-surface-600 mb-4 font-medium">
