@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import { Home, Search, ArrowLeft } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 import { SpotlightCard } from '../components/ui/SpotlightCard';
-import { DecryptedText } from '../components/ui/DecryptedText';
 import { Magnetic } from '../components/ui/Magnetic';
 import { ShinyText } from '../components/ui/ShinyText';
 
@@ -12,7 +11,7 @@ export default function NotFoundPage() {
       <SpotlightCard className="max-w-lg w-full">
         <div className="text-center p-8 sm:p-12 bg-white rounded-3xl border border-surface-200 shadow-card-lg">
           <div className="text-8xl font-black text-brand-600/30 mb-2 tracking-tighter">
-            <DecryptedText text="404" speed={70} maxIterations={15} />
+            <span className="page-hero-highlight">404</span>
           </div>
           <h1 className="font-display font-bold text-3xl text-surface-900 mb-3">
             <ShinyText text="Page Not Found" shinyColor="rgba(23, 108, 115, 0.9)" />

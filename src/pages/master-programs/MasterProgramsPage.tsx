@@ -7,7 +7,6 @@ import { CTASection } from '../../components/home/CTASection';
 import { usePageMeta } from '../../hooks/usePageMeta';
 import { useCmsCollection } from '../../hooks/useCmsCollection';
 import { ShinyText } from '../../components/ui/ShinyText';
-import { DecryptedText } from '../../components/ui/DecryptedText';
 import { SpotlightCard } from '../../components/ui/SpotlightCard';
 
 export default function MasterProgramsPage() {
@@ -28,7 +27,7 @@ export default function MasterProgramsPage() {
               <ShinyText text="Complete Career Tracks" shinyColor="rgba(23, 108, 115, 0.9)" />
             </div>
             <h1 className="page-hero-title display-lg font-extrabold mb-4">
-              Master <DecryptedText text="Programs" speed={30} maxIterations={10} className="page-hero-highlight" />
+              Master <span className="page-hero-highlight">Programs</span>
             </h1>
             <p className="page-hero-desc text-lg sm:text-xl">
               Structured multi-month programs designed to take you from fundamentals to job-ready in your chosen technology domain. With real projects, placement support and certification guidance.
@@ -67,7 +66,6 @@ export default function MasterProgramsPage() {
                 <div className="p-6">
                   <h2 className="heading-lg mb-2 text-surface-900 group-hover:text-brand-700 transition-colors">{program.title}</h2>
                   <p className="text-brand-700 text-sm font-bold mb-3">{program.tagline}</p>
-                  <p className="text-surface-600 text-sm leading-relaxed mb-5">{program.shortDescription}</p>
 
                   {/* Stats */}
                   <div className="flex flex-wrap gap-4 text-sm text-surface-600 font-medium mb-5">

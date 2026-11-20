@@ -305,37 +305,7 @@ export default function CourseDetailPage() {
               </div>
             </section>
 
-            {/* Who should join */}
-            <section aria-labelledby="who-heading">
-              <h2 id="who-heading" className="heading-xl mb-4">Who Should Join</h2>
-              <ul className="space-y-2">
-                {course.whoShouldJoin.map((who, i) => (
-                  <li key={i} className="flex items-center gap-2.5 text-sm text-surface-600">
-                    <span className="w-1.5 h-1.5 rounded-full bg-accent-400 flex-shrink-0" />
-                    {who}
-                  </li>
-                ))}
-              </ul>
-            </section>
 
-            {/* Prerequisites */}
-            <section aria-labelledby="prereq-heading">
-              <h2 id="prereq-heading" className="heading-xl mb-4">Prerequisites</h2>
-              <ul className="space-y-2">
-                {course.prerequisites.map((prereq, i) => (
-                  <li key={i} className="flex items-center gap-2.5 text-sm text-surface-600">
-                    <span className="w-1.5 h-1.5 rounded-full bg-surface-400 flex-shrink-0" />
-                    {prereq}
-                  </li>
-                ))}
-              </ul>
-            </section>
-
-            {/* FAQs */}
-            <section aria-labelledby="faq-heading">
-              <h2 id="faq-heading" className="heading-xl mb-6">Frequently Asked Questions</h2>
-              <FAQAccordion faqs={course.faqs} />
-            </section>
           </div>
 
           {/* Sticky enrollment panel */}
@@ -413,8 +383,9 @@ export default function CourseDetailPage() {
                     </div>
                   )}
                   {course.oneToOneAvailable && (
-                    <div className="flex items-center gap-2 text-sm text-surface-700">
-                      <BadgeCheck className="w-4 h-4 text-accent-500" /> One-to-One
+                    <div className="flex items-center justify-between text-sm text-surface-700">
+                      <span className="flex items-center gap-2"><BadgeCheck className="w-4 h-4 text-accent-500" /> One-to-One</span>
+                      <span className="font-bold text-brand-700">₹25,000</span>
                     </div>
                   )}
                 </div>
@@ -448,7 +419,7 @@ export default function CourseDetailPage() {
           <div className="bg-surface-50 rounded-3xl p-8">
             <EnquiryForm
               preselectedCourse={course.title}
-              title="Enquire About This Course"
+              title="Enquire About This Course" category="course"
               subtitle="Our counselor will contact you with details, batch schedules and pricing."
             />
           </div>

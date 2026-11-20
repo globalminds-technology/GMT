@@ -5,7 +5,6 @@ import { z } from 'zod';
 import { Phone, Mail, MapPin, MessageSquare, Clock, CheckCircle, Loader2, Send } from 'lucide-react';
 import { Breadcrumbs } from '../components/ui/Breadcrumbs';
 import { ShinyText } from '../components/ui/ShinyText';
-import { DecryptedText } from '../components/ui/DecryptedText';
 import { SpotlightCard } from '../components/ui/SpotlightCard';
 import { siteConfig } from '../data/siteConfig';
 import { enquiryService } from '../services/enquiryService';
@@ -53,14 +52,7 @@ export default function ContactPage() {
             <ShinyText text="Connect With Our Advisors • 24hr Turnaround" shinyColor="rgba(23, 108, 115, 0.9)" />
           </div>
           <h1 className="page-hero-title mb-4">
-            Get in <DecryptedText
-              text="Touch"
-              speed={40}
-              maxIterations={15}
-              sequential={true}
-              revealDirection="start"
-              className="page-hero-highlight"
-            />
+            Get in <span className="page-hero-highlight">Touch</span>
           </h1>
           <p className="page-hero-desc text-lg sm:text-xl max-w-2xl leading-relaxed">
             Get in touch with our team for course enquiries, career counseling, corporate training or general questions.

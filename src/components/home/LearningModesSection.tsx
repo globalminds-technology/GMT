@@ -33,7 +33,7 @@ const modes = [
   {
     icon: User,
     title: 'One-to-One Training',
-    href: '/online-training',
+    href: '/one-to-one-training',
     image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1200&h=700&fit=crop',
     imageAlt: 'Learners collaborating in a mentoring session',
     description: 'Personalised one-to-one sessions designed around your pace, schedule and specific goals.',

@@ -124,14 +124,17 @@ export function readNavigationContent(value: unknown): NavigationContent | undef
   const coursesItem = normalizedPrimary.find(item => item.href === '/courses');
   if (coursesItem) {
     coursesItem.visible = true;
-    coursesItem.children = categories.map((category, index) => ({
-      id: `course-category-${category.slug}`,
-      label: category.title,
-      href: `/categories/${category.slug}`,
-      visible: true,
-      order: index + 1,
-      icon: '',
-    }));
+    coursesItem.children = categories.map((category, index) => {
+      const course = publicCourseCatalog.find(c => c.category === category.slug);
+      return {
+        id: `course-category-${category.slug}`,
+        label: category.title,
+        href: course ? `/courses/${course.sourceSlug}` : `/categories/${category.slug}`,
+        visible: true,
+        order: index + 1,
+        icon: '',
+      };
+    });
   }
   const isCertificationsLink = (item: MenuLink) =>
     item.href.split(/[?#]/, 1)[0].replace(/\/+$/, '').toLowerCase() === '/certifications';
@@ -182,37 +185,31 @@ export const defaultNavigation: NavigationContent = {
       visible: true,
       order: 1,
       icon: '',
-      children: categories.map((category, index) => ({
-        id: `course-category-${category.slug}`,
-        label: category.title,
-        href: `/categories/${category.slug}`,
-        visible: true,
-        order: index + 1,
-        icon: '',
-      })),
+      children: categories.map((category, index) => {
+        const course = publicCourseCatalog.find(c => c.category === category.slug);
+        return {
+          id: `course-category-${category.slug}`,
+          label: category.title,
+          href: course ? `/courses/${course.sourceSlug}` : `/categories/${category.slug}`,
+          visible: true,
+          order: index + 1,
+          icon: '',
+        };
+      }),
     },
     { id: 'master-programs', label: 'Master Programs', href: '/master-programs', section: 'primary', visible: true, order: 2, icon: '', children: [] },
-    { id: 'placement', label: 'Placement Records', href: '/placement-records', section: 'primary', visible: true, order: 3, icon: '', children: [] },
-    { id: 'corporate-training', label: 'Corporate', href: '/corporate-training', section: 'primary', visible: true, order: 4, icon: '', children: [] },
-    { id: 'colleges', label: 'College', href: '/colleges', section: 'primary', visible: true, order: 5, icon: '', children: [] },
+    { id: 'career', label: 'Career & Placement', href: '/career', section: 'primary', visible: true, order: 3, icon: '', children: [] },
+    { id: 'about', label: 'About', href: '/about', section: 'primary', visible: true, order: 4, icon: '', children: [] },
+    { id: 'contact', label: 'Contact', href: '/contact', section: 'primary', visible: true, order: 5, icon: '', children: [] },
   ],
   more: createLinks([
     ['Batch Schedule', '/batch-schedule'],
-    ['Events', '/events'],
-    ['About', '/about'],
-    ['Blog', '/blog'],
-    ['Contact', '/contact'],
+    ['Placement Records', '/placement-records'],
+    ['Corporate', '/corporate-training'],
+    ['Colleges', '/colleges'],
     ['Certifications', '/certifications'],
     ['Internships', '/internships'],
-    ['Online Training', '/online-training'],
-    ['Classroom Training', '/classroom-training'],
-    ['Free Demo Class', '/demo-class'],
-    ['Skill Assessment', '/skill-assessment'],
-    ['Career & Placement', '/career'],
-    ['Interview Prep', '/career/interview-preparation'],
-    ['Mock Interview', '/career/mock-interview'],
     ['Live Projects', '/live-projects'],
     ['Refer & Earn', '/refer-earn'],
-    ['Locations', '/locations'],
   ]).map((item, index) => ({ ...item, section: 'more' as const, children: [], order: index + 1 })),
 };

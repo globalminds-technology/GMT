@@ -61,7 +61,6 @@ export function MasterProgramsSection() {
                 </div>
                 <div className="flex flex-1 flex-col p-5">
                   <h3 className="mb-2 line-clamp-2 font-display text-base font-bold text-surface-900 transition-colors group-hover:text-brand-700">{program.title}</h3>
-                  <p className="mb-4 line-clamp-2 text-sm leading-relaxed text-surface-600">{program.shortDescription}</p>
                   <div className="mb-4 flex items-center gap-2 text-xs font-medium text-surface-600">
                     <BookOpen className="h-3.5 w-3.5" aria-hidden="true" />
                     {program.modules.length} modules

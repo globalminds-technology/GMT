@@ -9,7 +9,6 @@ import { usePageMeta } from '../../hooks/usePageMeta';
 import { enquiryService } from '../../services/enquiryService';
 import { cn } from '../../utils/cn';
 import { ShinyText } from '../../components/ui/ShinyText';
-import { DecryptedText } from '../../components/ui/DecryptedText';
 import { SpotlightCard } from '../../components/ui/SpotlightCard';
 import { StarBorder } from '../../components/ui/StarBorder';
 import { dateService } from '../../services/dateService';
@@ -88,7 +87,7 @@ export default function MockInterviewPage() {
             <ShinyText text="1-on-1 Senior Industry Evaluators" shinyColor="rgba(23, 108, 115, 0.9)" />
           </div>
           <h1 className="page-hero-title display-lg font-extrabold mb-4">
-            Mock <DecryptedText text="Interviews" speed={30} maxIterations={10} className="page-hero-highlight" />
+            Mock <span className="page-hero-highlight">Interviews</span>
           </h1>
           <p className="page-hero-desc text-lg sm:text-xl max-w-2xl">
             Realistic interview simulations with detailed actionable feedback — practice under real interview conditions before facing hiring managers.

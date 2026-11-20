@@ -9,7 +9,6 @@ import { usePageMeta } from '../hooks/usePageMeta';
 import { cn } from '../utils/cn';
 import { useCmsCollection } from '../hooks/useCmsCollection';
 import { ShinyText } from '../components/ui/ShinyText';
-import { DecryptedText } from '../components/ui/DecryptedText';
 import { SpotlightCard } from '../components/ui/SpotlightCard';
 import { internships } from '../data/internships';
 import type { Internship } from '../types';
@@ -52,7 +51,7 @@ export default function InternshipsPage() {
             <ShinyText text="Industry Experience & Real-World Projects" shinyColor="rgba(23, 108, 115, 0.9)" />
           </div>
           <h1 className="page-hero-title mb-4">
-            Industry-Ready <DecryptedText text="Internships" speed={30} maxIterations={10} className="page-hero-highlight" />
+            Industry-Ready <span className="page-hero-highlight">Internships</span>
           </h1>
           <p className="page-hero-desc text-xl max-w-2xl leading-relaxed mb-6">
             Gain real industry experience through internships related to AWS / Cloud, Data Analytics, Python, AIML, Digital Marketing, Full Stack Development, Software Testing, and AI Automation Testing.

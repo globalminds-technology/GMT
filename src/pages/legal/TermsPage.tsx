@@ -1,6 +1,5 @@
 import { Breadcrumbs } from '../../components/ui/Breadcrumbs';
 import { ShinyText } from '../../components/ui/ShinyText';
-import { DecryptedText } from '../../components/ui/DecryptedText';
 import { useDateSystem } from '../../services/dateService';
 
 export default function TermsPage() {
@@ -14,14 +13,7 @@ export default function TermsPage() {
             <ShinyText text="Legal & Compliance" shinyColor="rgba(23, 108, 115, 0.9)" />
           </div>
           <h1 className="page-hero-title mb-2">
-            Terms of <DecryptedText
-              text="Service"
-              speed={40}
-              maxIterations={15}
-              sequential={true}
-              revealDirection="start"
-              className="page-hero-highlight"
-            />
+            Terms of <span className="page-hero-highlight">Service</span>
           </h1>
           <p className="text-surface-600 font-semibold text-sm">Last updated: {currentMonth} {currentYear}</p>
         </div>

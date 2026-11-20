@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { Breadcrumbs } from '../components/ui/Breadcrumbs';
 import { Button } from '../components/ui/Button';
 import { ShinyText } from '../components/ui/ShinyText';
-import { DecryptedText } from '../components/ui/DecryptedText';
 import { SpotlightCard } from '../components/ui/SpotlightCard';
 import { usePageMeta } from '../hooks/usePageMeta';
 
@@ -212,14 +211,7 @@ export default function SkillAssessmentPage() {
             <ShinyText text="Interactive Knowledge Check • 100% Free" shinyColor="rgba(23, 108, 115, 0.9)" />
           </div>
           <h1 className="page-hero-title mb-4">
-            Free <DecryptedText
-              text="Skill Assessment"
-              speed={40}
-              maxIterations={15}
-              sequential={true}
-              revealDirection="start"
-              className="page-hero-highlight"
-            />
+            Free <span className="page-hero-highlight">Skill Assessment</span>
           </h1>
           <p className="page-hero-desc text-xl max-w-2xl leading-relaxed">
             Test your existing knowledge, identify your skill gaps, and get personalised course recommendations — all in 10 minutes or less.

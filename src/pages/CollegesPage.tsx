@@ -11,7 +11,6 @@ import { CTASection } from '../components/home/CTASection';
 import { enquiryService } from '../services/enquiryService';
 import { cn } from '../utils/cn';
 import { ShinyText } from '../components/ui/ShinyText';
-import { DecryptedText } from '../components/ui/DecryptedText';
 import { SpotlightCard } from '../components/ui/SpotlightCard';
 import { CountUp } from '../components/ui/CountUp';
 
@@ -144,7 +143,7 @@ export default function CollegesPage() {
                 <ShinyText text="Institutional Partnership Program" shinyColor="rgba(23, 108, 115, 0.9)" />
               </div>
               <h1 className="page-hero-title display-lg font-extrabold mb-4">
-                Partner with <DecryptedText text="Global Minds Technologies" speed={30} maxIterations={10} className="page-hero-highlight" />
+                Partner with <span className="page-hero-highlight">Global Minds Technologies</span>
               </h1>
               <p className="page-hero-desc text-lg sm:text-xl max-w-2xl">
                 Empower your students with industry-relevant skills in AWS / Cloud, Data Analytics, Python, Gen AI / Agent AI, AIDS, AIML, Digital Marketing, Full Stack Development, Cyber Security, Software Testing, and AI Automation Testing.

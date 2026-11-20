@@ -28,6 +28,7 @@ interface EnquiryFormProps {
   subtitle?: string;
   className?: string;
   compact?: boolean;
+  category?: import('../../services/enquiryService').EnquiryCategory;
 }
 
 export function EnquiryForm({
@@ -36,6 +37,7 @@ export function EnquiryForm({
   subtitle = 'Fill out the form and our team will contact you within 24 hours.',
   className,
   compact = false,
+  category = 'general',
 }: EnquiryFormProps) {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
@@ -54,7 +56,7 @@ export function EnquiryForm({
   const onSubmit = async (data: FormData) => {
     setError('');
     try {
-      const result = await enquiryService.submitEnquiry({ ...data, city: '' });
+      const result = await enquiryService.submitEnquiry({ ...data, city: '' }, category);
       if (result.success) {
         setSuccess(true);
         reset();

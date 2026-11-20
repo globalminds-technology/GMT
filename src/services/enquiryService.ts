@@ -1,6 +1,20 @@
 import type { EnquiryForm, ContactForm, CorporateEnquiryForm } from '../types';
 import type { Enquiry } from '../data/adminMockData';
 
+export type EnquiryCategory =
+  | 'free-demo'
+  | 'course'
+  | 'master-program'
+  | 'internship'
+  | 'career-placement'
+  | 'job-support'
+  | 'corporate'
+  | 'college'
+  | 'certification'
+  | 'contact'
+  | 'one-to-one'
+  | 'general';
+
 interface EnquirySubmissionResult {
   success: boolean;
   message: string;
@@ -25,7 +39,7 @@ class EnquiryService {
     return result.enquiry;
   }
 
-  async submitEnquiry(data: EnquiryForm): Promise<EnquirySubmissionResult> {
+  async submitEnquiry(data: EnquiryForm, category: EnquiryCategory = 'general'): Promise<EnquirySubmissionResult> {
     return this.saveEnquiry({
       name: data.fullName,
       email: data.email,
@@ -33,6 +47,7 @@ class EnquiryService {
       course: data.course ?? '',
       message: [data.message, data.country, data.city, data.mode].filter(Boolean).join('\n'),
       source: 'Website Form',
+      category,
     });
   }
 
@@ -44,6 +59,7 @@ class EnquiryService {
       course: data.subject,
       message: data.message,
       source: 'Contact Page',
+      category: 'contact',
     });
   }
 
@@ -62,6 +78,7 @@ class EnquiryService {
         `Technologies: ${data.technologies.join(', ')}`,
       ].filter(Boolean).join('\n'),
       source: 'Corporate Training Form',
+      category: 'corporate',
     });
   }
 
@@ -92,11 +109,12 @@ class EnquiryService {
         `Programs of interest: ${data.programs.join(', ')}`,
       ].filter(Boolean).join('\n'),
       source: 'College Enquiry Form',
+      category: 'college',
     });
   }
 
   async createAdminEnquiry(data: Pick<Enquiry, 'name' | 'email' | 'phone' | 'course' | 'message'>): Promise<Enquiry> {
-    const result = await this.saveEnquiry({ ...data, source: 'Admin Dashboard' });
+    const result = await this.saveEnquiry({ ...data, source: 'Admin Dashboard', category: 'general' });
     if (!result.success || !result.enquiry) {
       throw new Error(result.message);
     }
@@ -124,6 +142,7 @@ class EnquiryService {
     course: string;
     message: string;
     source: string;
+    category: EnquiryCategory;
   }): Promise<EnquirySubmissionResult> {
     const response = await fetch('/api/enquiries', {
       method: 'POST',

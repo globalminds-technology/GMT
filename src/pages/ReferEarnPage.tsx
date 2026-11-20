@@ -3,7 +3,6 @@ import { Gift, Copy, CheckCircle, Share2, Zap, ArrowRight, Trophy } from 'lucide
 import { Breadcrumbs } from '../components/ui/Breadcrumbs';
 import { Button } from '../components/ui/Button';
 import { ShinyText } from '../components/ui/ShinyText';
-import { DecryptedText } from '../components/ui/DecryptedText';
 import { SpotlightCard } from '../components/ui/SpotlightCard';
 import { CTASection } from '../components/home/CTASection';
 import { usePageMeta } from '../hooks/usePageMeta';
@@ -180,14 +179,7 @@ export default function ReferEarnPage() {
               </div>
               <h1 className="page-hero-title mb-6">
                 Refer a Friend.<br />
-                <DecryptedText
-                  text="Both of You Win."
-                  speed={40}
-                  maxIterations={15}
-                  sequential={true}
-                  revealDirection="start"
-                  className="page-hero-highlight"
-                />
+                <span className="page-hero-highlight">Both of You Win.</span>
               </h1>
               <p className="page-hero-desc text-xl mb-8 max-w-xl leading-relaxed">
                 Share Global Minds Technologies with your friends. When they enroll, you earn ₹3,000 – ₹7,000 in your wallet and they get a discount on their course fee.

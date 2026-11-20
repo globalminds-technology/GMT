@@ -50,8 +50,6 @@ const footerLinks = {
 
   'Company': [
     { label: 'About Us', href: '/about' },
-    { label: 'Locations', href: '/locations' },
-    { label: 'Blog', href: '/blog' },
     { label: 'Contact Us', href: '/contact' },
   ],
 };

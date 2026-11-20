@@ -8,7 +8,7 @@ import { Breadcrumbs } from '../../components/ui/Breadcrumbs';
 import { EnquiryForm } from '../../components/ui/EnquiryForm';
 import { Button } from '../../components/ui/Button';
 import { ShinyText } from '../../components/ui/ShinyText';
-import { DecryptedText } from '../../components/ui/DecryptedText';
+
 import { SpotlightCard } from '../../components/ui/SpotlightCard';
 import { cn } from '../../utils/cn';
 import { useCmsCollection } from '../../hooks/useCmsCollection';
@@ -46,13 +46,7 @@ export default function MasterProgramDetailPage() {
                 <ShinyText text="Flagship Master Program" shinyColor="rgba(23, 108, 115, 0.9)" />
               </div>
               <h1 className="page-hero-title display-md font-extrabold mb-3">
-                <DecryptedText
-                  text={program.title}
-                  speed={40}
-                  maxIterations={15}
-                  sequential={true}
-                  revealDirection="start"
-                />
+                {program.title}
               </h1>
               <p className="page-hero-highlight text-lg font-bold mb-4">{program.tagline}</p>
               <p className="page-hero-desc text-base sm:text-lg mb-6">{program.shortDescription}</p>
@@ -151,11 +145,7 @@ export default function MasterProgramDetailPage() {
               </div>
             </section>
 
-            {/* FAQs */}
-            <section>
-              <h2 className="heading-xl mb-6">FAQs</h2>
-              <FAQAccordion faqs={program.faqs} />
-            </section>
+
           </div>
 
           {/* Sidebar */}
@@ -191,7 +181,7 @@ export default function MasterProgramDetailPage() {
         {/* Enquiry Form */}
         <div id="enquiry-form" className="mt-16 max-w-2xl mx-auto">
           <div className="bg-surface-50 border border-surface-200 rounded-3xl p-8">
-            <EnquiryForm preselectedCourse={program.title} title="Enquire About This Program" />
+            <EnquiryForm preselectedCourse={program.title} title="Enquire About This Program" category="master-program" />
           </div>
         </div>
       </div>
