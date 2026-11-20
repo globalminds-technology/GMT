@@ -305,11 +305,7 @@ export default function CourseDetailPage() {
               </div>
             </section>
 
-            {/* FAQs */}
-            <section aria-labelledby="faq-heading">
-              <h2 id="faq-heading" className="heading-xl mb-6">Frequently Asked Questions</h2>
-              <FAQAccordion faqs={course.faqs} />
-            </section>
+
           </div>
 
           {/* Sticky enrollment panel */}
@@ -387,8 +383,9 @@ export default function CourseDetailPage() {
                     </div>
                   )}
                   {course.oneToOneAvailable && (
-                    <div className="flex items-center gap-2 text-sm text-surface-700">
-                      <BadgeCheck className="w-4 h-4 text-accent-500" /> One-to-One
+                    <div className="flex items-center justify-between text-sm text-surface-700">
+                      <span className="flex items-center gap-2"><BadgeCheck className="w-4 h-4 text-accent-500" /> One-to-One</span>
+                      <span className="font-bold text-brand-700">₹25,000</span>
                     </div>
                   )}
                 </div>
