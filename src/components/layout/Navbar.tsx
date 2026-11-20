@@ -62,10 +62,10 @@ export function Navbar() {
         console.error('The published website navigation record has an invalid structure.');
         return;
       }
-      // Force Colleges to be a simple direct link (no dropdown)
-      content.primary = content.primary.map(item =>
-        item.id === 'colleges' ? { ...item, children: [] } : item,
-      );
+      // Remove Corporate and Colleges from primary nav, force About/Contact to primary
+      content.primary = content.primary
+        .map(item => item.id === 'colleges' ? { ...item, children: [] } : item)
+        .filter(item => !['corporate-training', 'colleges'].includes(item.id));
       if (active) setNavigation(content);
     }).catch(cause => {
       console.error('Unable to load the published website navigation. The default navigation remains available.', cause);
