@@ -43,6 +43,7 @@ function AddEnquiryModal({
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString(),
         notes: '',
+        category: 'General',
       });
     } finally {
       setSaving(false);
