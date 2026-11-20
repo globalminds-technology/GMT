@@ -305,32 +305,6 @@ export default function CourseDetailPage() {
               </div>
             </section>
 
-            {/* Who should join */}
-            <section aria-labelledby="who-heading">
-              <h2 id="who-heading" className="heading-xl mb-4">Who Should Join</h2>
-              <ul className="space-y-2">
-                {course.whoShouldJoin.map((who, i) => (
-                  <li key={i} className="flex items-center gap-2.5 text-sm text-surface-600">
-                    <span className="w-1.5 h-1.5 rounded-full bg-accent-400 flex-shrink-0" />
-                    {who}
-                  </li>
-                ))}
-              </ul>
-            </section>
-
-            {/* Prerequisites */}
-            <section aria-labelledby="prereq-heading">
-              <h2 id="prereq-heading" className="heading-xl mb-4">Prerequisites</h2>
-              <ul className="space-y-2">
-                {course.prerequisites.map((prereq, i) => (
-                  <li key={i} className="flex items-center gap-2.5 text-sm text-surface-600">
-                    <span className="w-1.5 h-1.5 rounded-full bg-surface-400 flex-shrink-0" />
-                    {prereq}
-                  </li>
-                ))}
-              </ul>
-            </section>
-
             {/* FAQs */}
             <section aria-labelledby="faq-heading">
               <h2 id="faq-heading" className="heading-xl mb-6">Frequently Asked Questions</h2>
