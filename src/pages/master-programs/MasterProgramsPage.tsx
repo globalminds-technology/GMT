@@ -66,7 +66,6 @@ export default function MasterProgramsPage() {
                 <div className="p-6">
                   <h2 className="heading-lg mb-2 text-surface-900 group-hover:text-brand-700 transition-colors">{program.title}</h2>
                   <p className="text-brand-700 text-sm font-bold mb-3">{program.tagline}</p>
-                  <p className="text-surface-600 text-sm leading-relaxed mb-5">{program.shortDescription}</p>
 
                   {/* Stats */}
                   <div className="flex flex-wrap gap-4 text-sm text-surface-600 font-medium mb-5">
