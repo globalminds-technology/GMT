@@ -1,4 +1,4 @@
-import { Briefcase, CheckCircle, ShieldCheck, Zap } from 'lucide-react';
+import { Briefcase, CheckCircle, ShieldCheck, Zap, Users, Star } from 'lucide-react';
 import { Breadcrumbs } from '../components/ui/Breadcrumbs';
 import { ShinyText } from '../components/ui/ShinyText';
 import { SpotlightCard } from '../components/ui/SpotlightCard';
@@ -8,7 +8,10 @@ import { siteConfig } from '../data/siteConfig';
 import { usePageMeta } from '../hooks/usePageMeta';
 
 const coreStats = [
-  { icon: Briefcase, label: 'Hiring Partners', value: '50+', color: 'bg-accent-50 text-accent-600' },
+  { icon: Briefcase,    label: 'Hiring Partners',    value: 50,  suffix: '+',  color: 'bg-accent-50 text-accent-600' },
+  { icon: Users,        label: 'Students Trained',   value: 5000, suffix: '+', color: 'bg-brand-50 text-brand-700' },
+  { icon: CheckCircle,  label: 'Placement Rate',     value: 95,  suffix: '%',  color: 'bg-green-50 text-green-700' },
+  { icon: Star,         label: 'Google Rating',      value: 4.9, suffix: '★',  color: 'bg-amber-50 text-amber-600' },
 ];
 
 const features = [
@@ -61,14 +64,14 @@ export default function AboutPage() {
       {/* ── Core Stats ─────────────────────────────────── */}
       <div className="border-b border-surface-100">
         <div className="container-xl py-10">
-          <div className="mx-auto grid max-w-xs grid-cols-1 gap-6 text-center">
+          <div className="mx-auto grid max-w-2xl grid-cols-2 lg:grid-cols-4 gap-4 text-center">
             {coreStats.map(s => (
-              <SpotlightCard key={s.label} className={`p-6 rounded-2xl ${s.color}`}>
-                <s.icon className="w-7 h-7 mx-auto mb-2" />
-                <div className="text-3xl font-black">
-                  <CountUp end={50} start={true} suffix="+" />
+              <SpotlightCard key={s.label} className={`p-5 rounded-2xl ${s.color}`}>
+                <s.icon className="w-6 h-6 mx-auto mb-2" />
+                <div className="text-2xl font-black">
+                  <CountUp end={s.value} start={true} suffix={s.suffix} />
                 </div>
-                <div className="text-sm font-bold mt-1 text-surface-800">{s.label}</div>
+                <div className="text-xs font-bold mt-1 text-surface-800">{s.label}</div>
               </SpotlightCard>
             ))}
           </div>
